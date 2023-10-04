@@ -28,13 +28,15 @@ const App = () => {
 
   return (
     <main>
-      <h1>Hello World</h1>
       {loading ? (
         <p>Carregando dados...</p>
       ) : (
         <ul>
           {data.map(item => (
-            <li key={item.id}>{item.brand}</li>
+            <li key={item.id}>
+              <h2>{item.brand}</h2>
+              <img src={item.image_url} alt={item.image_url} />
+            </li>
           ))}
         </ul>
       )}

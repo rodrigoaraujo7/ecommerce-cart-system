@@ -6,7 +6,7 @@
       "productName": "T13",
       "price": 199,
       "stockQuantity": 72,
-      "image_url": "../../src/utils/images/qcy-t13.png"
+      "image_url": "https://i.imgur.com/R7f0BLf.png"
     },
     {
       "id": 1,
@@ -14,7 +14,7 @@
       "productName": "T20",
       "price": 249,
       "stockQuantity": 20,
-      "image_url": "../../src/utils/images/qcy-t20.png"
+      "image_url": "https://i.imgur.com/nFZzKY3.png"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "productName": "T18",
       "price": 289,
       "stockQuantity": 52,
-      "image_url": "../../src/utils/images/qcy-t18.png"
+      "image_url": "https://i.imgur.com/WBX6ZBd.png"
     },
     {
       "id": 3,
@@ -30,7 +30,7 @@
       "productName": "GTS",
       "price": 279,
       "stockQuantity": 17,
-      "image_url": "../../src/utils/images/qcy-gts.png"
+      "image_url": "https://i.imgur.com/EjOTcg2.png"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "productName": "Buds 2",
       "price": 399,
       "stockQuantity": 77,
-      "image_url": "../../src/utils/images/samsung-buds2.png"
+      "image_url": "https://i.imgur.com/Bm6idUD.png"
     },
     {
       "id": 5,
@@ -46,7 +46,7 @@
       "productName": "Buds Live",
       "price": 499,
       "stockQuantity": 0,
-      "image_url": "../../src/utils/images/samsung-budslive.png"
+      "image_url": "https://i.imgur.com/W0spouf.png"
     },
     {
       "id": 6,
@@ -54,7 +54,7 @@
       "productName": "Watch 6",
       "price": 2699,
       "stockQuantity": 28,
-      "image_url": "../../src/utils/images/samsung-watch6.png"
+      "image_url": "https://i.imgur.com/LHfpbvn.png"
     },
     {
       "id": 7,
@@ -62,7 +62,7 @@
       "productName": "AirPods Pro",
       "price": 2599,
       "stockQuantity": 2599,
-      "image_url": "../../src/utils/images/apple-airpodspro.png"
+      "image_url": "https://i.imgur.com/gOPd4v7.png"
     },
     {
       "id": 8,
@@ -70,7 +70,7 @@
       "productName": "Watch SE",
       "price": 3299,
       "stockQuantity": 19,
-      "image_url": "../../src/utils/images/apple-watchse.png"
+      "image_url": "https://i.imgur.com/NLET09o.png"
     }
   ]
 }

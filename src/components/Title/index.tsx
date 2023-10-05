@@ -6,7 +6,7 @@ type ITitle = {
 
 const Title = ({ children }: ITitle) => {
   return (
-    <h1 className='font-inter font-extrabold text-7xl'>
+    <h1 className='font-inter font-extrabold text-6xl md:text-7xl'>
       {children}
     </h1>
   )

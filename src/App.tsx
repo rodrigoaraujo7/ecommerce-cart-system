@@ -26,25 +26,22 @@ const App = () => {
   }, []);
 
   return (
-    <main className='font-inter flex justify-center items-center mt-32'>
-      <div>
+    <main className='font-inter flex justify-center items-center my-32'>
+      <div className='w-4/5 flex flex-col items-center lg:w-3/5'>
         <Title>Welcome to the <span className='text-primaryBlue'>Build ~</span></Title>
-        {loading ? (
-          <p>Carregando dados...</p>
-        ) : (
-          <div>
-            {data.map(product => (
-              <ProductCard
-                id={product.id}
-                brand={product.brand}
-                productName={product.productName}
-                image_url={product.image_url}
-                price={product.price}
-                stockQuantity={product.stockQuantity}
-              />
-            ))}
-          </div>
-        )}</div>
+        <div className='w-full flex flex-wrap justify-center gap-12 mt-20'>
+          {data.map(product => (
+            <ProductCard
+              id={product.id}
+              brand={product.brand}
+              productName={product.productName}
+              image_url={product.image_url}
+              price={product.price}
+              stockQuantity={product.stockQuantity}
+            />
+          ))}
+        </div>
+      </div>
     </main>
   );
 }

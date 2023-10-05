@@ -2,7 +2,7 @@ import { ProductProps } from '../../../types/product'
 
 const ProductCard = ({ id, brand, productName, price, stockQuantity, image_url }: ProductProps) => {
   return (
-    <div className='w-72 flex flex-col gap-3 text-xl font-inter font-medium'>
+    <div className='w-72 flex flex-col flex-grow basis-44 gap-3 text-xl font-inter font-medium xl:basis-auto'>
       <img className='w-full' src={image_url} alt={productName} />
       <div className='flex justify-between'>
         <h2 className='font-bold'>{brand} <span>{productName}</span></h2>

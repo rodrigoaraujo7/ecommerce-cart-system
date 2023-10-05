@@ -63,14 +63,6 @@
       "price": 2599,
       "stockQuantity": 2599,
       "image_url": "https://i.imgur.com/gOPd4v7.png"
-    },
-    {
-      "id": 8,
-      "brand": "Apple",
-      "productName": "Watch SE",
-      "price": 3299,
-      "stockQuantity": 19,
-      "image_url": "https://i.imgur.com/NLET09o.png"
     }
   ]
 }

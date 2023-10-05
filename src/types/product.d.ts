@@ -4,5 +4,6 @@ export type ProductProps = {
   productName: string,
   price: number,
   stockQuantity: number | boolean,
-  image_url: string
+  image_url: string,
+  buttonEvent?: ((id: number) => void)
 }

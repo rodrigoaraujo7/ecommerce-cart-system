@@ -8,9 +8,15 @@ const ProductCard = ({ id, brand, productName, price, stockQuantity, image_url }
         <h2 className='font-bold'>{brand} <span>{productName}</span></h2>
         <h2>$ {price}</h2>
       </div>
-      <button className='h-11 bg-primaryBlue text-white font-bold font-poppins rounded-md'>
-        Add to cart
-      </button>
+      {stockQuantity === 0 ? (
+        <button className='h-11 bg-lightBlue cursor-not-allowed text-white font-bold font-poppins rounded-md'>
+          Out of stock
+        </button>
+      ) : (
+        <button className='h-11 bg-primaryBlue text-white font-bold font-poppins rounded-md'>
+          Add to cart
+        </button>
+      )}
     </div>
   )
 }

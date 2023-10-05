@@ -10,7 +10,8 @@ module.exports = {
       'grey300': '#EEEEEE',
       'grey500': '#707070',
       'grey900': '#1E1E1E',
-      'primaryBlue': '#2D2DEA'
+      'primaryBlue': '#2D2DEA',
+      'lightBlue': '#9090FB',
     },
     fontFamily: {
       'inter': ['Inter', 'sans-serif'],

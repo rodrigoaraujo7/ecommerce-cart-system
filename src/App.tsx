@@ -1,21 +1,20 @@
+// react
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-interface Product {
-  id: number,
-  brand: string,
-  productName: string,
-  price: number,
-  stockQuantity: number | boolean,
-  image_url: string
-}
+// components
+import Title from './components/Title'
+import ProductCard from './components/Catalog/ProductCard'
+
+// types
+import { ProductProps } from './types/product'
 
 const App = () => {
-  const [data, setData] = useState<Product[]>([])
+  const [data, setData] = useState<ProductProps[]>([])
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get<Product[]>('http://localhost:3000/products')
+    axios.get<ProductProps[]>('http://localhost:3000/products')
       .then(response => {
         setData(response.data);
         setLoading(false);
@@ -28,18 +27,24 @@ const App = () => {
 
   return (
     <main className='font-inter flex justify-center items-center mt-32'>
-      {loading ? (
-        <p>Carregando dados...</p>
-      ) : (
-        <ul>
-          {data.map(item => (
-            <li key={item.id}>
-              <h2>{item.brand}</h2>
-              <img src={item.image_url} alt={item.productName} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <div>
+        <Title>Welcome to the <span className='text-primaryBlue'>Build ~</span></Title>
+        {loading ? (
+          <p>Carregando dados...</p>
+        ) : (
+          <div>
+            {data.map(product => (
+              <ProductCard
+                id={product.id}
+                brand={product.brand}
+                productName={product.productName}
+                image_url={product.image_url}
+                price={product.price}
+                stockQuantity={product.stockQuantity}
+              />
+            ))}
+          </div>
+        )}</div>
     </main>
   );
 }

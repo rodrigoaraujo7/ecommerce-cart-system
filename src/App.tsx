@@ -27,7 +27,7 @@ const App = () => {
   }, []);
 
   return (
-    <main>
+    <main className='font-inter flex justify-center items-center mt-32'>
       {loading ? (
         <p>Carregando dados...</p>
       ) : (
@@ -35,7 +35,7 @@ const App = () => {
           {data.map(item => (
             <li key={item.id}>
               <h2>{item.brand}</h2>
-              <img src={item.image_url} alt={item.image_url} />
+              <img src={item.image_url} alt={item.productName} />
             </li>
           ))}
         </ul>

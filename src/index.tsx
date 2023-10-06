@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+
+// react router imports
+import { BrowserRouter } from 'react-router-dom'
+import AppRouter from './routes'
+
+// providers
+import ProductProvider from './providers/Product';
+import CartProvider from './providers/Cart';
 
 import './index.css'
 
@@ -9,7 +16,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ProductProvider>
+        <CartProvider>
+          <AppRouter />
+        </CartProvider>
+      </ProductProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

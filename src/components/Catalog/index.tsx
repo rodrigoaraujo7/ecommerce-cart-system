@@ -2,8 +2,10 @@
 import { useContext } from 'react'
 import { useCartContext } from '../../providers/Cart'
 
-// components
+// provider
 import ProductsProvider from '../../providers/Product/ProductContext'
+
+// components
 import ProductCard from './ProductCard'
 
 // framermotion

@@ -1,8 +1,10 @@
 // components
 import CartFooter from './Footer';
 
-// icons
+// providers
 import { useCartContext } from '../../providers/Cart'
+
+// icons
 import cartIcon from '../../utils/icons/cart.svg'
 import deleteIcon from '../../utils/icons/delete.svg'
 

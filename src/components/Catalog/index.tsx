@@ -1,21 +1,20 @@
 // react
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { useCartContext } from '../../providers/Cart'
 
 // components
 import ProductsProvider from '../../providers/Product/ProductContext'
 import ProductCard from './ProductCard'
-import { ProductProps } from '../../types/product'
 
 const Catalog = () => {
-  const { cartItems, addToCart } = useCartContext();
+  const { addToCart } = useCartContext();
 
   const data = useContext(ProductsProvider)
 
   return (
     <ul className='w-full flex flex-wrap justify-center gap-12 mt-20 list-none'>
-      {data.map(product => (
-        <li key={product.id}>
+      {data.map((product, index) => (
+        <li key={index}>
           <ProductCard
             id={product.id}
             brand={product.brand}

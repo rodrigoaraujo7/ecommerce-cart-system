@@ -6,13 +6,25 @@ import { useCartContext } from '../../providers/Cart'
 import ProductsProvider from '../../providers/Product/ProductContext'
 import ProductCard from './ProductCard'
 
+// framermotion
+import { motion } from 'framer-motion'
+
 const Catalog = () => {
   const { addToCart } = useCartContext();
 
   const data = useContext(ProductsProvider)
 
   return (
-    <ul className='w-full flex flex-wrap justify-center gap-12 mt-20 list-none'>
+    <motion.ul
+      className='w-full flex flex-wrap justify-center gap-12 mt-20 list-none'
+      initial={{ // initial position
+        opacity: 0,
+      }}
+      animate={{ // when active the animation
+        opacity: 1,
+        transition: { duration: 1.25 }
+      }}
+    >
       {data.map((product, index) => (
         <li key={index}>
           <ProductCard
@@ -26,7 +38,7 @@ const Catalog = () => {
           />
         </li>
       ))}
-    </ul>
+    </motion.ul>
   )
 }
 

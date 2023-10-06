@@ -31,7 +31,7 @@ const ProductProvider = ({ children }: IProvider) => {
   return (
     <ProductsContext.Provider value={data}>
       {loading ? (
-        <h1>Loading ...</h1>
+        <></>
       ) : (
         <>
           {children}

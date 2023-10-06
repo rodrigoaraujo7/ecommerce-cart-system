@@ -6,7 +6,7 @@ interface CartFooterProps {
 
 const CartFooter = (props: CartFooterProps) => {
   return (
-    <footer className="bottom-0 left-0 right-0 p-12 font-bold w-full bg-black">
+    <footer className="bottom-0 left-0 right-0 font-bold w-full bg-black">
       <h1 className="text-5xl mb-2">Total</h1>
       <hr className="border-1 border-grey900" />
       <h1 className="text-5xl my-6">$ {props.totalPrice}</h1>

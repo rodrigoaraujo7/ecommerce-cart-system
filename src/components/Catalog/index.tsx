@@ -1,37 +1,33 @@
 // react
 import { useContext, useState } from 'react'
+import { useCartContext } from '../../providers/Cart'
 
 // components
-import ProductsContext from '../Provider/productContext'
+import ProductsProvider from '../../providers/Product/ProductContext'
 import ProductCard from './ProductCard'
 import { ProductProps } from '../../types/product'
 
 const Catalog = () => {
-  const data = useContext(ProductsContext)
+  const { cartItems, addToCart } = useCartContext();
 
-  const [clickedProduct, setClickedProduct] = useState<ProductProps | null>();
-
-  const addProductToCart = (id: number) => {
-    const clickedProduct = data.find((product) => product.id === id);
-    setClickedProduct(clickedProduct);
-
-    console.log(clickedProduct)
-  };
+  const data = useContext(ProductsProvider)
 
   return (
-    <div className='w-full flex flex-wrap justify-center gap-12 mt-20'>
+    <ul className='w-full flex flex-wrap justify-center gap-12 mt-20 list-none'>
       {data.map(product => (
-        <ProductCard
-          id={product.id}
-          brand={product.brand}
-          productName={product.productName}
-          image_url={product.image_url}
-          price={product.price}
-          stockQuantity={product.stockQuantity}
-          buttonEvent={addProductToCart}
-        />
+        <li key={product.id}>
+          <ProductCard
+            id={product.id}
+            brand={product.brand}
+            productName={product.productName}
+            image_url={product.image_url}
+            price={product.price}
+            stockQuantity={product.stockQuantity}
+            buttonEvent={addToCart}
+          />
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 

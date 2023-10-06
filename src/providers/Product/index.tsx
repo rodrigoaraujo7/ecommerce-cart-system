@@ -2,8 +2,8 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import axios from 'axios'
 
-// components
-import ProductsContext from './productContext';
+// context
+import ProductsContext from './ProductContext';
 
 // types
 import { ProductProps } from '../../types/product'
@@ -12,7 +12,7 @@ type IProvider = {
   children: ReactNode
 }
 
-const Provider = ({ children }: IProvider) => {
+const ProductProvider = ({ children }: IProvider) => {
   const [data, setData] = useState<ProductProps[]>([])
   const [loading, setLoading] = useState(true);
 
@@ -41,4 +41,4 @@ const Provider = ({ children }: IProvider) => {
   )
 }
 
-export default Provider
+export default ProductProvider

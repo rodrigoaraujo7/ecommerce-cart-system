@@ -5,5 +5,5 @@ export type ProductProps = {
   price: number,
   stockQuantity: number | boolean,
   image_url: string,
-  buttonEvent?: ((id: number) => void)
+  buttonEvent?: ((id: number) => void) | any
 }

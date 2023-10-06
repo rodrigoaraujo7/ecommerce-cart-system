@@ -5,6 +5,7 @@ import ProductsProvider from '../../providers/Product/ProductContext'
 interface CartContextType {
   cartItems: ProductProps[];
   addToCart: (product: ProductProps) => void;
+  removeFromCart: (product: ProductProps) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -39,8 +40,14 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     }
   };
 
+  // creating the function to remove the product from cart
+  const removeFromCart = (product: ProductProps) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== product.id);
+    setCartItems(updatedCartItems);
+  }
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

@@ -46,22 +46,41 @@ const Cart = () => {
 
   return (
     <>
-      <motion.button
-        onClick={handleClick}
-        className={
-          `fixed z-10 top-4 right-4 w-24 h-24 rounded-full flex justify-center items-center transition-all 
-          ${open ? 'bg-black hover:bg-grey900' : 'bg-primaryBlue hover:bg-lightBlue'}`
-        }
-        initial={{ // initial position
-          opacity: 0,
-        }}
-        animate={{ // when active the animation
-          opacity: 1,
-          transition: { duration: 1, delay: 3 }
-        }}
-      >
-        <img src={cartIcon} alt="cart icon" />
-      </motion.button>
+      {cartItems.length > 0 && (
+          <div className="fixed z-10 top-4 right-4">
+            <motion.button
+                onClick={handleClick}
+                className={
+                  `w-24 h-24 rounded-full flex justify-center items-center
+                 ${open ? 'bg-black hover:bg-grey900' : 'bg-primaryBlue hover:bg-lightBlue'}`
+                }
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.3,
+                  ease: [0, 0.71, 0.2, 1.01],
+                  scale: {
+                    type: "spring",
+                    damping: 5,
+                    stiffness: 100,
+                    restDelta: 0.001
+                  }
+                }}
+            >
+              <img src={cartIcon} alt="cart icon" />
+            </motion.button>
+            {!open && (
+                <motion.div
+                    className="relative bottom-7 w-8 h-8 flex justify-center items-center rounded-full bg-black text-white"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3 }}
+                >
+                  {cartItems.length}
+                </motion.div>
+            )}
+          </div>
+      )}
 
       <AnimatePresence>
         {open && (

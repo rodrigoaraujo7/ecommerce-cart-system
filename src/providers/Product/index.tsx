@@ -17,7 +17,7 @@ const ProductProvider = ({ children }: IProvider) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get<ProductProps[]>('http://localhost:3000/products')
+    axios.get<ProductProps[]>('https://ecommerce-cart-system-api.onrender.com/products')
       .then(response => {
         setData(response.data);
         setLoading(false);

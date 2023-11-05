@@ -6,6 +6,7 @@ import { useCartContext } from '../../providers/Cart'
 
 // icons
 import cartIcon from '../../utils/icons/cart.svg'
+import closeIcon from '../../utils/icons/close.svg'
 import deleteIcon from '../../utils/icons/delete.svg'
 
 // framer motion
@@ -46,7 +47,7 @@ const Cart = () => {
 
   return (
     <>
-      {cartItems.length > 0 && (
+      {cartItems.length > 0 && !open && (
           <div className="fixed z-10 top-4 right-4">
             <motion.button
                 onClick={handleClick}
@@ -97,11 +98,14 @@ const Cart = () => {
             }}
             exit={{ // when close the header
               x: '100%',
-              transition: { delay: .45, duration: 0.4 }
+              transition: { duration: 0.4 }
             }}>
 
-            <header>
+            <header className='flex justify-between'>
               <h1 className='font-bold text-3xl'>Shopping cart</h1>
+              <button onClick={handleClick}>
+                <img src={closeIcon} alt="close cart icon" />
+              </button>
             </header>
 
             <motion.ul

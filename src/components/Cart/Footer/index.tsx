@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import arrow from '../../../utils/icons/arrow.svg'
 
 interface CartFooterProps {
@@ -10,12 +12,13 @@ const CartFooter = (props: CartFooterProps) => {
       <h1 className="text-5xl mb-2">Total</h1>
       <hr className="border-1 border-grey900" />
       <h1 className="text-5xl my-6">$ {props.totalPrice}</h1>
-      <button
+      <Link
+        to="/checkout"
         className="h-11 w-full flex justify-between items-center px-5 bg-primaryBlue text-white text-2xl font-semibold font-poppins rounded-md"
       >
         Checkout
         <img src={arrow} alt="" />
-      </button>
+      </Link>
     </footer>
   )
 }

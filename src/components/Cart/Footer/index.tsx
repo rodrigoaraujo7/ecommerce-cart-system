@@ -1,12 +1,16 @@
+// react-router
 import { Link } from 'react-router-dom'
 
+// icons
 import arrow from '../../../utils/icons/arrow.svg'
 
+// types
 interface CartFooterProps {
   totalPrice: number
 }
 
 const CartFooter = (props: CartFooterProps) => {
+
   return (
     <footer className="bottom-0 left-0 right-0 font-bold w-full bg-black">
       <h1 className="text-5xl mb-2">Total</h1>

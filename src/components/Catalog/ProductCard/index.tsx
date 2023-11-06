@@ -14,7 +14,7 @@ const ProductCard = (props: ProductProps) => {
         </button>
       ) : (
         <button
-          className='h-11 bg-primaryBlue text-white font-bold font-poppins rounded-md'
+          className='h-11 bg-primaryBlue text-white font-bold font-poppins rounded-md transition hover:-translate-y-1'
           onClick={() => (props.buttonEvent as (id: number) => void)(props.id)}
         >
           Add to cart

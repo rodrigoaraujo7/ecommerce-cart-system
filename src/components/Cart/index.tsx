@@ -1,3 +1,6 @@
+// react
+import { useState, useEffect, useRef } from 'react'
+
 // components
 import CartFooter from './Footer';
 
@@ -34,6 +37,7 @@ const sideVariants = {
     }
   }
 };
+
 const Cart = () => {
   const { cartItems, removeFromCart } = useCartContext();
 
@@ -43,44 +47,61 @@ const Cart = () => {
 
   // animation
   const [open, cycleOpen] = useCycle(false, true);
-  const handleClick = () => cycleOpen()
+  const handleCycleCart = () => cycleOpen()
+
+  // close cart when click out
+  const cartContainerRef = useRef<HTMLDivElement>(null)
+
+  const handleCloseCartClickOut = (e: MouseEvent) => {
+    if (cartContainerRef.current && !cartContainerRef.current.contains(e.target as Node)) {
+      cycleOpen(0)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleCloseCartClickOut);
+
+    return () => {
+      document.removeEventListener('mousedown', handleCloseCartClickOut);
+    };
+  }, []);
 
   return (
     <>
       {cartItems.length > 0 && !open && (
-          <div className="fixed z-10 top-4 right-4">
-            <motion.button
-                onClick={handleClick}
-                className={
-                  `w-24 h-24 rounded-full flex justify-center items-center
+        <div className="fixed z-10 top-4 right-4">
+          <motion.button
+            onClick={handleCycleCart}
+            className={
+              `w-24 h-24 rounded-full flex justify-center items-center
                  ${open ? 'bg-black hover:bg-grey900' : 'bg-primaryBlue hover:bg-lightBlue'}`
-                }
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.3,
-                  ease: [0, 0.71, 0.2, 1.01],
-                  scale: {
-                    type: "spring",
-                    damping: 5,
-                    stiffness: 100,
-                    restDelta: 0.001
-                  }
-                }}
+            }
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.3,
+              ease: [0, 0.71, 0.2, 1.01],
+              scale: {
+                type: "spring",
+                damping: 5,
+                stiffness: 100,
+                restDelta: 0.001
+              }
+            }}
+          >
+            <img src={cartIcon} alt="cart icon" />
+          </motion.button>
+          {!open && (
+            <motion.div
+              className="relative bottom-7 w-8 h-8 flex justify-center items-center rounded-full bg-black text-white"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
             >
-              <img src={cartIcon} alt="cart icon" />
-            </motion.button>
-            {!open && (
-                <motion.div
-                    className="relative bottom-7 w-8 h-8 flex justify-center items-center rounded-full bg-black text-white"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 }}
-                >
-                  {cartItems.length}
-                </motion.div>
-            )}
-          </div>
+              {cartItems.length}
+            </motion.div>
+          )}
+        </div>
       )}
 
       <AnimatePresence>
@@ -99,11 +120,13 @@ const Cart = () => {
             exit={{ // when close the header
               x: '100%',
               transition: { duration: 0.4 }
-            }}>
+            }}
+            ref={cartContainerRef}
+          >
 
             <header className='flex justify-between'>
               <h1 className='font-bold text-3xl'>Shopping cart</h1>
-              <button onClick={handleClick}>
+              <button onClick={handleCycleCart}>
                 <img src={closeIcon} alt="close cart icon" />
               </button>
             </header>

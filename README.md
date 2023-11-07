@@ -26,6 +26,8 @@
 - [x] Tailwind
 - [x] Axios
 - [x] JSON Server
+- [x] React Hook Form
+- [x] Zod 
 
 ## How to download the project:
 

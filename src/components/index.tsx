@@ -4,6 +4,7 @@ import Catalog from "./Catalog"
 import ProductCard from "./Catalog/ProductCard"
 import Cart from "./Cart"
 import CartFooter from "./Cart/Footer"
+import Input from "./Input"
 
 export {
   Title,
@@ -11,5 +12,6 @@ export {
   Catalog,
   ProductCard,
   Cart,
-  CartFooter
+  CartFooter,
+  Input
 }

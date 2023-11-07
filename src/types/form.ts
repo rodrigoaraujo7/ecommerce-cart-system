@@ -7,7 +7,8 @@ export const CreateUserFormSchema = z.object({
   email: z.string()
     .nonempty('The email field is required')
     .email('Invalid email!'),
-  cellphoneNumber: z.number(),
+  cellphoneNumber: z.string()
+    .nonempty('The Cell Phone number field is required'),
   addres: z.string()
     .nonempty('The email field is required')
 })

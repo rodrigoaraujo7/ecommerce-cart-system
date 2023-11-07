@@ -1,10 +1,13 @@
 // react-hook-forms
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 // zod
 import { CreateUserFormSchema, CreateUserFormData } from '../../../types/form'
 import { zodResolver } from '@hookform/resolvers/zod'
+
+// mask
+import { normalizePhoneNumber } from '../../../utils/masks'
 
 // components
 import { Submit, Input } from '../../../components'
@@ -14,11 +17,20 @@ const Form = () => {
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     formState: { errors }, // need to show the form validation errors
   } = useForm<CreateUserFormData>({
     resolver: zodResolver(CreateUserFormSchema)
   })
 
+  // cellphone number mask
+  const phoneValue = watch('cellphoneNumber')
+  useEffect(() => {
+    setValue('cellphoneNumber', normalizePhoneNumber(phoneValue))
+  }, [phoneValue])
+
+  // submit user
   function createUser(data: any) {
     // storing the data on my state
     setOutput(JSON.stringify(data, null, 2))
@@ -29,7 +41,7 @@ const Form = () => {
       <div className="inputs flex flex-col gap-7">
         <Input type='fullName' register={register} errors={errors.fullName}>Full Name</Input>
         <Input type='email' register={register} errors={errors.email}>Your best email</Input>
-        <Input type='cellphoneNumber' register={register} errors={errors.cellphoneNumber}>Cellphone number</Input>
+        <Input type='cellphoneNumber' register={register} errors={errors.cellphoneNumber}>Cell Phone number</Input>
         <Input type='addres' register={register} errors={errors.addres}>Addres</Input>
       </div>
 

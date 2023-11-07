@@ -25,8 +25,13 @@ const Form = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(createUser)}>
-      <Input type='fullName' register={register} errors={errors.fullName}>Full Name</Input>
+    <form onSubmit={handleSubmit(createUser)} className='mt-20'>
+      <div className="inputs flex flex-col gap-7">
+        <Input type='fullName' register={register} errors={errors.fullName}>Full Name</Input>
+        <Input type='email' register={register} errors={errors.email}>Your best email</Input>
+        <Input type='cellphoneNumber' register={register} errors={errors.cellphoneNumber}>Cellphone number</Input>
+        <Input type='addres' register={register} errors={errors.addres}>Addres</Input>
+      </div>
 
       <input type="submit" />
       <pre>{output}</pre>

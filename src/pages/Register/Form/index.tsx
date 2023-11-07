@@ -7,7 +7,7 @@ import { CreateUserFormSchema, CreateUserFormData } from '../../../types/form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 // components
-import { Input } from '../../../components'
+import { Submit, Input } from '../../../components'
 
 const Form = () => {
   const [output, setOutput] = useState(''); // state to show the form data
@@ -33,7 +33,7 @@ const Form = () => {
         <Input type='addres' register={register} errors={errors.addres}>Addres</Input>
       </div>
 
-      <input type="submit" />
+      <Submit>Next Step</Submit>
       <pre>{output}</pre>
     </form>
   )

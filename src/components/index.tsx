@@ -5,6 +5,7 @@ import ProductCard from "./Catalog/ProductCard"
 import Cart from "./Cart"
 import CartFooter from "./Cart/Footer"
 import Input from "./Input"
+import Submit from "./Input/Submit"
 
 export {
   Title,
@@ -13,5 +14,6 @@ export {
   ProductCard,
   Cart,
   CartFooter,
-  Input
+  Input,
+  Submit
 }

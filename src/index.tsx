@@ -8,6 +8,7 @@ import AppRouter from './routes'
 // providers
 import ProductProvider from './providers/Product';
 import CartProvider from './providers/Cart';
+import UserProvider from './providers/User';
 
 import './index.css'
 
@@ -19,7 +20,9 @@ root.render(
     <BrowserRouter>
       <ProductProvider>
         <CartProvider>
-          <AppRouter />
+          <UserProvider>
+            <AppRouter />
+          </UserProvider>
         </CartProvider>
       </ProductProvider>
     </BrowserRouter>

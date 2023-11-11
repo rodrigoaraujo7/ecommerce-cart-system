@@ -15,8 +15,11 @@ import { useNavigate } from 'react-router-dom'
 // components
 import { Submit, Input } from '../../../components'
 
+// context
+import { useUserContext } from '../../../providers/User'
+
 const Form = () => {
-  const [output, setOutput] = useState(''); // state to show the form data
+  const setUser = useUserContext()
   const {
     register,
     handleSubmit,
@@ -34,13 +37,23 @@ const Form = () => {
   }, [phoneValue])
 
   // submit user  
+  const userContext = useUserContext()
   const navigate = useNavigate()
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: CreateUserFormData) => {
+    if (userContext) {
+      userContext.setUser({
+        fullName: data.fullName,
+        cellphoneNumber: data.cellphoneNumber,
+        email: data.email,
+        adress: data.addres
+      })
+    }
+
     // redirecting the user
     navigate('/checkout', { replace: true })
 
     // creating the user
-    setOutput(JSON.stringify(data, null, 2))
+    console.log(data.fullName)
   }
 
   return (
@@ -53,7 +66,6 @@ const Form = () => {
       </div>
 
       <Submit>Next Step</Submit>
-      {/* <pre>{output}</pre> */}
     </form>
   )
 }

@@ -1,5 +1,6 @@
-// provider
+// context
 import { useCartContext } from '../../providers/Cart'
+import { useUserContext } from '../../providers/User'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -14,6 +15,9 @@ import lock from '../../utils/icons/lock.svg'
 
 const Checkout = () => {
   const { cartItems } = useCartContext()
+
+  const userContext = useUserContext()
+  const user = userContext?.user
 
   // total price
   const total = cartItems.reduce((acumulador, produto) => {
@@ -38,8 +42,12 @@ const Checkout = () => {
     >
       <div className='w-4/5 flex flex-wrap items-center lg:w-3/5'>
         <div className='w-full md:w-1/2'>
-          <h1>dwawd</h1>
+          <h1>{user?.fullName}</h1>
+          <h1>{user?.cellphoneNumber}</h1>
+          <h1>{user?.email}</h1>
+          <h1>{user?.adress}</h1>
         </div>
+
         <aside className='w-full px-7 pb-9 pt-16 bg-grey100 rounded-xl font-inter font-semibold text-sm md:text-base xl:text-lg md:w-1/2'>
           <header className='flex flex-col items-center gap-5'>
             <h2 className='font-inter text-grey900 text-xl font-semibold'>Total amount</h2>

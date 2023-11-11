@@ -1,14 +1,13 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+// react
+import React, { useContext, useState, ReactNode } from 'react';
+
+// types
 import { ProductProps } from '../../types/product';
+import { CartContextType } from '../../types/cart';
+
+// provider - context
+import CartContext from './CartContext';
 import ProductsProvider from '../../providers/Product/ProductContext'
-
-interface CartContextType {
-  cartItems: ProductProps[];
-  addToCart: (product: ProductProps) => void;
-  removeFromCart: (product: ProductProps) => void;
-}
-
-const CartContext = createContext<CartContextType | undefined>(undefined);
 
 interface CartProviderProps {
   children: ReactNode;

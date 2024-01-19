@@ -1,5 +1,5 @@
 // react-hook-forms
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 // zod
@@ -19,7 +19,6 @@ import { Submit, Input } from '../../../components'
 import { useUserContext } from '../../../providers/User'
 
 const Form = () => {
-  const setUser = useUserContext()
   const {
     register,
     handleSubmit,
@@ -34,7 +33,7 @@ const Form = () => {
   const phoneValue = watch('cellphoneNumber')
   useEffect(() => {
     setValue('cellphoneNumber', normalizePhoneNumber(phoneValue))
-  }, [phoneValue])
+  }, [phoneValue, setValue])
 
   // submit user  
   const userContext = useUserContext()

@@ -1,5 +1,5 @@
 // react
-import { useState, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 // components
 import CartFooter from './Footer';
@@ -52,11 +52,11 @@ const Cart = () => {
   // close cart when click out
   const cartContainerRef = useRef<HTMLDivElement>(null)
 
-  const handleCloseCartClickOut = (e: MouseEvent) => {
+  const handleCloseCartClickOut = useCallback((e: MouseEvent) => {
     if (cartContainerRef.current && !cartContainerRef.current.contains(e.target as Node)) {
       cycleOpen(0)
     }
-  }
+  }, [cycleOpen, cartContainerRef])
 
   useEffect(() => {
     document.addEventListener('mousedown', handleCloseCartClickOut);
@@ -64,7 +64,7 @@ const Cart = () => {
     return () => {
       document.removeEventListener('mousedown', handleCloseCartClickOut);
     };
-  }, []);
+  }, [handleCloseCartClickOut]);
 
   return (
     <>

@@ -2,8 +2,6 @@
 import { useCartContext } from '../../providers/Cart'
 import { useUserContext } from '../../providers/User'
 
-import { useNavigate } from 'react-router-dom'
-
 // components
 import { Hr } from './Hr'
 
@@ -25,7 +23,6 @@ const Checkout = () => {
   }, 0);
 
   // if cart is empty return to home
-  const navigate = useNavigate();
   // if (cartItems.length <= 0) {
   //   navigate({
   //     pathname: '/',

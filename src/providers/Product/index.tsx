@@ -14,29 +14,20 @@ type IProvider = {
 
 const ProductProvider = ({ children }: IProvider) => {
   const [data, setData] = useState<ProductProps[]>([])
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get<ProductProps[]>('https://ecommerce-cart-system-api.onrender.com/products')
       .then(response => {
         setData(response.data);
-        setLoading(false);
       })
       .catch(error => {
         console.error('Erro ao buscar dados:', error);
-        setLoading(false);
       });
   }, []);
 
   return (
     <ProductsContext.Provider value={data}>
-      {loading ? (
-        <></>
-      ) : (
-        <>
-          {children}
-        </>
-      )}
+      {children}
     </ProductsContext.Provider>
   )
 }
